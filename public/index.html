@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fishbowl.css">
+    <title>Fish Bowl</title>
+  </head>
+  <body>
+    <div id="statusDiv"></div>
+    <div id='roomIdDiv'></div>
+    <!-- name/room select (lobby) component -->
+    <div id="lobbyDiv">
+      <div id="joinDiv">
+        <label for="nameInput">name</label>
+        <input id="nameInput" type="text" autocomplete="off" /><br />
+        <label for="roomIdInput">Room ID</label>
+        <input id="roomIdInput" type="text" autocomplete="off" style="text-transform:uppercase" /><br />
+        <button id="joinButton">Join room</button>
+        <div id="joinHelpDiv">Leave room ID blank to create a new room.</div>
+      </div>
+    </div>
+
+    <!-- room component -->
+    <div id="pregameDiv" style="display:none">
+      <div id="playersDiv">
+        <script type="text/template" id="template_players">
+          <table id="playersTable">
+            {{#player}}
+            <tr>
+              <td>{{name}}</td>
+              <td>
+                <span style="color:{{team_color}}">{{team}}</span>
+                {{#isMe}}
+                  <img id='changeTeamButton' src='team-change-icon.png' height=20>
+                {{/isMe}}
+              </td>
+              <td>
+                {{#addedWords}}
+                added words
+                {{/addedWords}}
+              </td>
+            </tr>
+            {{/player}}
+          </table>
+        </script>
+      </div>
+      <div id="customWordsDiv">
+        <script type="text/template" id="template_custom_words">
+          {{^addedWords}}
+          <input class="customWord"></input>
+          <input class="customWord"></input>
+          <input class="customWord"></input>
+          <input class="customWord"></input>
+          <input class="customWord"></input>
+          <button id="addCustomWordsButton">Add words</button>
+          {{/addedWords}}
+          {{#addedWords}}
+            words added
+          {{/addedWords}}
+        </script>
+      </div>
+      <button id="startGameButton" style="display:none">Start game</button>
+    </div>
+
+    <!-- game component -->
+    <div id="gameDiv" style="display:none">
+      <div id="teamScoresDiv">
+        <span class="teamName">Team Red</span>
+        <span class="teamScore">45</span>
+      </div>
+      <div id="deckDiv" class="cardDiv">12</div>
+      <div id="turnTimeDiv">
+        <button id="pauseButton"></button>
+        <span id="turnTimeSpan">00:30</span>
+      </div>
+      <div id="waitingForDiv">Waiting for XYZ to start turn...</div>
+      <button id="startTurnButton" style="display:none">Start turn</button>
+      <button id="endTurnButton" style="display:none">End turn</button>
+      <button id="newGameButton" style="display:none">Play again</button>
+      <div id="myTurnDiv">
+        <div id="currentCardDiv" class="cardDiv">ERROR NO CARD</div><br />
+        <div id="cardButtons">
+        <button id="gotCardButton">Got it!</button>
+        <button id="passCardButton">Pass</button>
+        </div>
+      </div>
+      <div id="resolvedCardsDiv">
+        <script type="text/template" id="template_resolved_cards">
+          <div id="gotCardsDiv">
+            <span id="gotCardsHeader">Got ({{numGot}})</span>
+            <ul id="gotCardsList" class="resolvedCardsList">
+              {{#gotCards}}<li>{{.}}</li>{{/gotCards}}
+            </ul>
+          </div>
+          <div id="passedCardsDiv">
+            <span id="passedCardsHeader">Passed ({{numPassed}})</span>
+            <ul id="passedCardsList" class="resolvedCardsList">
+              {{#passedCards}}<li>{{.}}</li>{{/passedCards}}
+            </ul>
+          </div>
+        </script>
+       </div>
+       <button id="undoButton" style='display:none'>Move card</button> 
+    </div>
+
+    <audio id="gotitAudio" preload="auto">
+      <source src="gotit.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="passAudio" preload="auto">
+      <source src="pass.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="timeUpAudio" preload="auto">
+      <source src="bell-ring.flac" type="audio/flac">
+    </audio>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.1.0/mustache.min.js"></script>
+    <script src="fishbowl.js"></script>
+  </body>
+</html>

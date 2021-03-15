@@ -1,0 +1,9 @@
+{
+  "name": "nugget-chat",
+  "version": "0.0.1",
+  "description": "chat for butt nuggets",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  }
+}

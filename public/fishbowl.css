@@ -1,0 +1,199 @@
+ul {
+    list-style:none;
+  }
+  @font-face{
+    font-family: 'Beach Day';
+    src: url('beachday.ttf') format('truetype'); 
+  }
+  @font-face{
+    font-family: 'Digital Dismay';
+    src: url('digital_dismay.otf') format('opentype'); 
+  }
+  @font-face{
+    font-family: 'Cartoonist Hand';
+    src: url('SF_Cartoonist_Hand.ttf') format('truetype'); 
+  }
+  * {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+  }
+
+  body {
+    font-size: 22px;
+    font-family: 'Beach Day';
+    background-color:#1093a7;
+    padding:5px;
+  }
+  #statusDiv {
+    max-width: 500px;
+    float:left;
+  }
+  button {
+    background: rgb(130, 224, 255);
+    border: 1px solid black;
+    padding: 10px;
+    font-size: 24px; font-family: 'Beach Day';
+    width:200px;
+    border-radius:20px;
+  }
+  .playerDiv { background-color: #cccccc }
+  .cardDiv { 
+    border:1px solid black;
+    background-color: #f2eecb;
+    padding: 20px;
+    display:inline-block;
+    width:250px;
+    font-family: 'Cartoonist Hand';
+    font-size: 36px;
+  }
+  #lobbyDiv, #pregameDiv {
+    margin: 10px;
+  }
+  #joinDiv label {
+    width: 120px;
+    clear:both;
+    float:left;
+    margin:5px;
+    text-align: right;
+  }
+  #joinDiv input {
+    max-width: 200px;
+    height:40px;
+    margin:5px;
+    background-color:#def2f3;
+    border:1px solid black;
+    font-family: 'Beach Day';
+    font-size:100%;
+  }
+  #gameDiv {
+    margin:10px;
+    max-width:500px;
+    text-align:center;
+  }
+  #myTurnDiv {
+    float:left;
+    clear:both;
+    width:100%;
+    text-align:center;
+    margin-top:10px;
+  }
+  #cardButtons {
+    margin:auto;
+  }
+  #gotCardButton, #passCardButton {
+    margin:5px;
+    width:30%;
+    }
+  #gotCardButton {
+    background-color:lightgreen;
+  }
+  #passCardButton {
+    background-color:indianred;
+  }
+  #teamScoresDiv {
+    float:left;
+    margin-right: 10px;
+    max-width:140px;
+  }
+  .teamScore, .teamName {
+    display:inline-block;
+    background-color:rgba(255,0,0,0.2);
+    border:1px solid rgb(100, 100, 150);
+    padding:5px;
+  }
+  .teamName { width:80%;
+    text-align:right;
+  }
+  .teamScore { width:20%; 
+    text-align:left;
+  }
+  #turnTimeDiv {
+    font-family: 'Digital Dismay';
+    font-size: 36px;
+    text-align:right;
+    display:inline-block;
+    width: 120px;
+  }
+  #pauseButton {
+    width: 24px;
+    height: 24px;
+    border: none;
+    margin-top: 6px;
+    padding: 0;
+    background: transparent;
+  }
+  #pauseButton.paused {
+    background-image: url('play-icon.png');
+    background-size:contain;
+  }
+  #pauseButton:not(.paused) {
+    background-image: url('pause-icon.png');
+    background-size:contain;
+  }
+  #playersTable {
+    border-spacing: 5px;
+  }
+  #playersTable td {
+    padding: 10px;
+    background-color:#589ba4;
+    width: 200px;
+  }
+  #playersTable td:last-child {
+    background-color: transparent;
+  }
+  #changeTeamButton {
+    float: right;
+    margin-top: 4px;
+  }
+  #waitingForDiv {
+      clear:left;
+      margin-bottom:10px;
+  }
+  #gotCardsDiv, #passedCardsDiv {
+      margin: 5px;
+      width: 45%;
+      display: inline-block;
+      vertical-align: top;
+  }
+  .resolvedCardsList {
+      font-family: 'Cartoonist Hand';
+      font-size: 16pt;
+  }
+  .resolvedCardsList li {
+    border-bottom: 1px solid;
+  }
+  .resolvedCardsList li.selected {
+    background: rgba(0, 0, 0, 0.2);
+  }
+  #deckDiv {
+    float: left;
+    font-family: 'Beach Day';
+    font-size: 24pt;
+    width: 50px;
+    padding: 10px;
+  }
+  #joinDiv, #joinButton {
+    font-size: 24pt;
+  }
+  #joinButton {
+    margin-left: 90px;
+
+    margin-top:20px;
+  }
+  #roomIdDiv {
+    font-family: monospace;
+    font-size: 14pt;
+    text-align:right;
+    max-width:500px;
+    letter-spacing: 1px;
+  }
+  .customWord {
+    float:left;
+    clear:left;
+    margin:5px;
+  }
+  #joinHelpDiv {
+    font-size: smaller;
+    margin-top:20px;
+  }
